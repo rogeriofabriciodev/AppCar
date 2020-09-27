@@ -10,7 +10,7 @@ class Fire {
     const remoteUri = await this.uploadPhotoAsync(localUri);
 
     return new Promise((res, rej) => {
-      firebase.database().ref('/posts/' + this.uid + '/' + Date.now()).set({
+      firebase.database().ref('/posts/' + this.uid + '/' + this.timestamp).set({
         text,
         uid: this.uid,
         timestamp: this.timestamp,
