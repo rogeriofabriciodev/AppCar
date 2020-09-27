@@ -3,6 +3,7 @@ import { StyleSheet } from 'react-native';
 import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 
 import LoginScreen from './screens/LoginScreen';
+import PostScreen from './screens/PostScreen';
 import DashboardScreen from './screens/DashboardScreen';
 import LoadingScreen from './screens/LoadingScreen';
 
@@ -24,6 +25,7 @@ export default class App extends React.Component {
 const AppSwitchNavigator = createSwitchNavigator({
   LoadingScreen: LoadingScreen,
   LoginScreen: LoginScreen,
+  PostScreen: PostScreen,
   DashboardScreen: DashboardScreen
 })
 
