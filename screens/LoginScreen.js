@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, Button } from 'react-native';
+import { View, StyleSheet, Button, Image } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
 import * as Google from 'expo-google-app-auth';
 import firebase from 'firebase';
 
@@ -102,8 +103,9 @@ class LoginScreen extends Component {
   render() {
     return (
       <View style={styles.container}>
+        <Image style={styles.logo} source={require('../assets/favicon.png')}/>
         <Button
-          title="Login com Google"
+          title="Login with Google"
           onPress={() => this.signInWithGoogleAsync()}
         />
       </View>
@@ -118,6 +120,11 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'center'
   },
+
+  logo: {
+    marginBottom: 50 
+  }
+
 });

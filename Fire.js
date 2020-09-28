@@ -20,6 +20,7 @@ class Fire {
         res(ref)
       })
       .catch(error => {
+        alert('Você precisa escolher uma foto na galeria.')
         rej(error)
       })
     })
@@ -54,6 +55,10 @@ class Fire {
 
   get uid() {
     return (firebase.auth().currentUser || {}).uid;
+  }
+
+  get pictureUser() {
+    return (firebase.auth.currentUser || {}).profile.picture;
   }
 
   get timestamp() {
