@@ -69,7 +69,7 @@ class PostScreen extends Component {
       <SafeAreaView style={styles.container}>
         <ScrollView>
           <View style={styles.header}>
-            <TouchableOpacity onPress={() => this.props.navigation.goBack()}>
+            <TouchableOpacity onPress={() => this.props.navigation.navigate('DashboardScreen')}>
               <Ionicons name='md-arrow-back' size={24} color='#232323'></Ionicons>
             </TouchableOpacity>
             <TouchableOpacity onPress={this.pickImage}>
@@ -80,10 +80,9 @@ class PostScreen extends Component {
             </TouchableOpacity>
           </View>
           <View style={styles.picture}>
-            <Image source={require('../assets/picture.png')} style={styles.avatar}></Image>
             <Text style={{fontSize: 24, marginTop: 30, }}>FOTOS</Text>
           </View>
-          <View style={{marginHorizontal: 32, marginTop: 32, height: 300, backgroundColor: '#eee', borderRadius: 12}}>
+          <View style={{marginHorizontal: 32, marginTop: 32, width: 350, height: 350, backgroundColor: '#eee', borderWidth: 0.5, borderRadius: 12, borderColor: '#000'}}>
             <Image source={{ uri: this.state.image }} style={{width: '100%', height: '100%'}}></Image>
           </View>
           <View style={styles.inputContainer}>
