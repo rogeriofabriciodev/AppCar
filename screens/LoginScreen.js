@@ -39,7 +39,7 @@ class LoginScreen extends Component {
           .auth()
           .signInWithCredential(credential)
           .then(function(result){
-            console.log('Usuário Logado');
+            console.log('Usuário Logado: ', result.user.displayName);
             if (result.additionalUserInfo.isNewUser) {
               firebase
                 .database()

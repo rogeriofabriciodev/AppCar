@@ -1,9 +1,40 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import { View, Text, StyleSheet, Button, SafeAreaView, ScrollView, TouchableOpacity, Image } from 'react-native';
 import firebase from 'firebase';
 
 
 class DashboardScreen extends Component {
+
+  state = {
+    name: '',
+    aPhoto: '../assets/picture.png',
+  }
+
+  componentDidMount() {
+    this.getUserName();
+    this.getUserPhoto();
+  }
+  
+  getUserName = () => {
+    // firebase
+    //   .auth().currentUser.displayName;
+
+    this.setState({name: firebase
+      .auth().currentUser.displayName});
+  }
+
+
+  getUserPhoto = () => {
+    // firebase
+    //   .auth().currentUser.photoURL;
+
+    this.setState({aPhoto: firebase
+      .auth().currentUser.photoURL});
+
+      console.log('foto: ', firebase.auth().currentUser.photoURL);
+  }
+
+
   render() {
     return (
       <SafeAreaView style={styles.container}>
@@ -15,8 +46,8 @@ class DashboardScreen extends Component {
             </TouchableOpacity>
           </View>
           <View style={styles.picture}>
-            <Image source={require('../assets/picture.png')} style={styles.avatar}></Image>
-            <Text style={{fontSize: 24, marginTop: 30, }}>Nome</Text>
+            <Image source={{uri: firebase.auth().currentUser.photoURL}} style={styles.avatar}></Image>
+            <Text style={{fontSize: 24, marginTop: 30, }}>{firebase.auth().currentUser.displayName}</Text>
           </View>
           <View>
             <TouchableOpacity onPress={() => this.props.navigation.navigate('PostScreen')} style={styles.btnAdd}>
